@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 
 android {
+    namespace 'cn.hikyson.android.godeye.xcrash'
     compileSdkVersion Integer.parseInt(COMPILE_SDK_VERSION)
     buildToolsVersion BUILD_TOOLS_VERSION
 
@@ -22,8 +23,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = 1.8
-        targetCompatibility = 1.8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 
 }
@@ -40,4 +41,3 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.2.2'
 }
 
-apply from: rootProject.file('gradle/gradle-jcenter-push.gradle')

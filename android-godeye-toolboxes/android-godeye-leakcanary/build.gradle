@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 
 android {
+    namespace 'cn.hikyson.android.godeye.leakcanary'
     compileSdkVersion Integer.parseInt(COMPILE_SDK_VERSION)
     buildToolsVersion BUILD_TOOLS_VERSION
 
@@ -35,4 +36,3 @@ dependencies {
     implementation project(':android-godeye')
 }
 
-apply from: rootProject.file('gradle/gradle-jcenter-push.gradle')

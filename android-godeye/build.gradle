@@ -1,8 +1,9 @@
 apply plugin: 'com.android.library'
 
-apply from: rootProject.file('gradle/gradle-jacoco-support.gradle')
 
 android {
+    buildFeatures { aidl true }
+    namespace 'cn.hikyson.godeye.core'
     compileSdkVersion Integer.parseInt(COMPILE_SDK_VERSION)
     buildToolsVersion BUILD_TOOLS_VERSION
 
@@ -16,8 +17,8 @@ android {
         consumerProguardFiles 'consumer-rules.pro'
     }
     compileOptions {
-        targetCompatibility = "8"
-        sourceCompatibility = "8"
+        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_11
     }
     buildTypes {
         release {
@@ -34,13 +35,16 @@ android {
 }
 
 dependencies {
+    api 'androidx.fragment:fragment:1.2.0'
+    api 'androidx.collection:collection:1.1.0'
+    implementation 'com.squareup.okio:okio:2.2.2'
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.annotation:annotation:1.1.0'
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.2'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
     implementation 'com.squareup.leakcanary:shark:2.2'
-    implementation "cn.hikyson.methodcanary:lib:${VERSION_METHOD_CANARY}"
+    implementation project(':methodcanary-runtime')
     testImplementation 'junit:junit:4.12'
     testImplementation 'androidx.test:core:1.2.0'
     testImplementation 'org.mockito:mockito-core:2.8.9'
@@ -55,4 +59,4 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
 
-apply from: rootProject.file('gradle/gradle-jcenter-push.gradle')
+

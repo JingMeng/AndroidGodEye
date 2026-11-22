@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
+    namespace 'cn.hikyson.godeye.sample'
     compileSdkVersion Integer.parseInt(COMPILE_SDK_VERSION)
     buildToolsVersion BUILD_TOOLS_VERSION
 
@@ -13,8 +14,8 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     compileOptions {
-        targetCompatibility = "8"
-        sourceCompatibility = "8"
+        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_11
     }
     signingConfigs {
         release {
@@ -65,11 +66,3 @@ dependencies {
     debugImplementation project(':android-godeye-toolboxes:android-godeye-leakcanary')
 }
 
-apply plugin: 'cn.hikyson.methodcanary.plugin'
-
-AndroidGodEye {
-    enableLifecycleTracer true
-    enableMethodTracer true
-    instrumentationRuleFilePath "AndroidGodEye-MethodCanary.js"
-    instrumentationRuleIncludeClassNamePrefix(["cn/hikyson/godeye/sample"])
-}

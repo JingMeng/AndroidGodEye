@@ -1,4 +1,5 @@
 include ':android-godeye-sample'
+include ':methodcanary-runtime'
 include ':android-godeye'
 include ':android-godeye-monitor'
 include ':android-godeye-toolboxes:android-godeye-leakcanary'
