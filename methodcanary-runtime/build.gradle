@@ -1,0 +1,12 @@
+apply plugin: 'com.android.library'
+
+android {
+    namespace 'cn.hikyson.methodcanary.lib'
+    compileSdk 34
+    defaultConfig { minSdk 16; targetSdk 34 }
+}
+
+dependencies {
+    implementation 'androidx.fragment:fragment:1.2.0'
+    implementation 'com.squareup.okio:okio:2.2.2'
+}
